@@ -47,4 +47,28 @@ const [apiResponse, setApiResponse] = useState({
   ...
   return (...)
 ```
+### Avoiding Unnecessary API Calls
+Effect execute multiple times, due to upadating status in state and many API Calls are made.\
+```jsx
+useEffect(() => {
+  const funName = async() => {
+  setApiResponse({Status:apiStatusConstants.inProgress,data:null,errorMsg:null})
+    await fetch(url, options)
+    ...
+  }
+  funName()
+})
+```
+The Effect should execute, and an API call should be made only once, so pass ***empty dependency array*** as a second argument to the useEffect.
+```jsx
+useEffect(() => {
+  const funName = async() => {
+  setApiResponse({...})
+    await fetch(url, options)
+    ...
+  }
+  funName()
+},[])
+```
+
 
