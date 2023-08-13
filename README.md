@@ -1,4 +1,4 @@
-# Making API Call with Hooks | Part 2
+# Making API Call with Hooks
 
 - Avoiding Unnecessary API Calls
   - Using Dependency Array
