@@ -70,5 +70,24 @@ useEffect(() => {
   funName()
 },[])
 ```
+### Updating Object in the State
+Class Components
+- The Object provided to the `setState()` will merge into the current state object.
+- The newly created object contains all the keys and values.
+
+Function Components
+- The Object provided to the setter function will replace the current state object.
+- The newly created object may not contain all the keys and values.
+
+To Avoid this problem/
+While updating the state, use callback function and spread operator to get all the key values from the current state object.
+```jsx
+setApiResponse((prevApiResponse) => ({
+          ...prevApiResponse,
+          status: apiStatusConstants.success,
+          data: responseData
+        }))
+```
+
 
 
