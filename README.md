@@ -17,7 +17,7 @@ useEffect(async() => {
   ...
 })
 ```
-If you need an asynchronous function, define and call the async function inside the Effect
+If you need an asynchronous function, define and call the async function inside the Effect.
 
 ```jsx
 useEffect(() => {
@@ -27,5 +27,24 @@ useEffect(() => {
   }
   funName()
 })
+```
+### Display different views
+While making an API call, we need to display different views like Loading View, Success View, and Failure View.
+
+For displaying these views, we need to maintain the following values in the state.
+
+- Status
+- Data
+- Error Message
+
+We use a single state variable with an object as an initial value to store these values as they tend to change together.
+```jsx
+const [apiResponse, setApiResponse] = useState({
+    status: apiStatusConstants.initial,
+    data: null,
+    errorMsg: null
+  })
+  ...
+  return (...)
 ```
 
